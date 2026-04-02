@@ -754,6 +754,7 @@
         @media (max-width: 992px) {
             .hero-content, .about-grid, .contact-grid {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
             
             .reviews-grid {
@@ -769,6 +770,24 @@
                 order: -1;
                 max-width: 500px;
                 margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .section-title {
+                font-size: 1.75rem;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .contact-form {
+                padding: 20px;
+            }
+            .contact-card {
+                padding: 20px;
             }
         }
         
@@ -1079,11 +1098,11 @@
             <h2 class="section-title fade-up"><span class="text-cyan">Contacto</span></h2>
             <div class="contact-grid">
                 <div class="contact-info fade-up">
-                    <div class="contact-card">
+                        <div class="contact-card">
                         <div class="contact-icon">✉️</div>
-                        <div>
+                        <div style="overflow: hidden;">
                             <h4>Email</h4>
-                            <p>jaimebernaldezimpulsa@gmail.com</p>
+                            <p style="word-break: break-all;">jaimebernaldezimpulsa@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-card">
@@ -1093,10 +1112,10 @@
                             <p>722 785 142</p>
                         </div>
                     </div>
-                    <div class="contact-footer-block fade-up" style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 2rem; text-align: center;">
-                        <h4 style="color: var(--text-dark); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;">¿Prefieres una respuesta inmediata?</h4>
-                        <p style="color: #6e6e73; margin-bottom: 1.5rem;">Escríbeme directamente por WhatsApp y te respondo en menos de 24 horas.</p>
-                        <a href="https://wa.me/34722785142" target="_blank" class="btn btn-primary btn-whatsapp">Abrir WhatsApp</a>
+                    <div class="contact-footer-block fade-up" style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 2rem; text-align: center; max-width: 100%; overflow: hidden;">
+                        <h4 style="color: var(--text-dark); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; word-wrap: break-word;">¿Prefieres una respuesta inmediata?</h4>
+                        <p style="color: #6e6e73; margin-bottom: 1.5rem; word-wrap: break-word;">Escríbeme directamente por WhatsApp y te respondo en menos de 24 horas.</p>
+                        <a href="https://wa.me/34722785142" target="_blank" class="btn btn-primary btn-whatsapp" style="display: inline-block; max-width: 100%;">Abrir WhatsApp</a>
                     </div>
                 </div>
                 <div class="contact-form fade-up">
