@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaime Bernáldez Reina | Consultor Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cyan: #00aecf;
+            --cyan-hover: #009eb8;
+            --text-dark: #1d1d1f;
+            --text-light: #6e6e73;
+            --bg-white: #ffffff;
+            --bg-offwhite: #fafafa;
+            --whatsapp: #25D366;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 20px 48px rgba(0, 0, 0, 0.1);
+            --radius: 20px;
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-light);
+            line-height: 1.9;
+            overflow-x: hidden;
+            background-color: var(--bg-white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+
+        .text-cyan {
+            color: var(--cyan);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 128px 0;
+            position: relative;
+            background-color: var(--bg-white);
+            border-top: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+        }
+
+        section:nth-child(even) {
+            background-color: var(--bg-offwhite);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: -1.5px;
+            font-weight: 700;
+        }
+
+        .section-label {
+            display: block;
+            text-align: center;
+            color: var(--cyan);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-dark);
+        }
+
+        .nav-links a.nav-contacto {
+            color: var(--cyan);
+        }
+
+        .nav-links a.nav-contacto:hover {
+            color: var(--cyan-hover);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.85rem 2.2rem;
+            border-radius: 980px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--cyan);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--cyan-hover);
+            transform: scale(1.02);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1.5px solid var(--cyan);
+            color: var(--cyan);
+        }
+
+        .btn-ghost:hover {
+            background: var(--cyan);
+            color: white;
+            transform: scale(1.02);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 128px;
+            background-color: var(--bg-white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Removed hero mesh animation */
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 6rem;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            position: relative;
+            padding-bottom: 20px;
+            letter-spacing: -3px;
+        }
+
+        /* Removed hero h1 line sweep animation */
+
+        /* Removed button pulse animation */
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.12);
+            display: block;
+            background: #ffffff;
+        }
+
+        /* Sobre mí */
+        /* Removed .about background */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .mission-box {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--cyan);
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+        }
+
+        .mission-box li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .mission-box li::before {
+            content: '✓';
+            color: var(--cyan);
+            font-weight: bold;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-small {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--cyan);
+            text-align: center;
+        }
+
+        /* Lo que ofrezco */
+        /* Removed .services background */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+            transition: var(--transition);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: scale(1.015);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-accent {
+            width: 40px;
+            height: 4px;
+            background-color: var(--cyan);
+            margin-bottom: 24px;
+            border-radius: 2px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+        }
+
+        /* Proyectos destacados */
+        /* Removed .projects background */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: scale(1.015);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            object-position: top center;
+            background: linear-gradient(45deg, #e0e0e0, #f5f5f5);
+            display: block;
+        }
+
+        .project-content {
+            padding: 32px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: rgba(0, 184, 212, 0.1);
+            color: var(--cyan);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--text-light);
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--cyan);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: #008ba0;
+        }
+
+        /* Reseñas */
+        /* Removed .reviews background */
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-top: -40px;
+            margin-bottom: 60px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .review-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-card:hover {
+            transform: scale(1.015);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* Removed shimmer sweep animation */
+
+        .review-stars {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            flex-grow: 1;
+            line-height: 1.7;
+        }
+
+        .quote-mark {
+            color: var(--cyan);
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2em;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-top: 24px;
+            border-top: 1px solid #eee;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cyan), #007a8d);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .author-info span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Contacto */
+        /* Removed .contact background */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            transform: scale(1.015);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 184, 212, 0.1);
+            color: var(--cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .contact-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+        }
+
+        .contact-form {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(0,0,0,0.07);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 0 3px rgba(0, 184, 212, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 75px;
+            height: 75px;
+            background-color: var(--whatsapp);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Removed text pulse animation */
+
+        section {
+            position: relative;
+        }
+
+        /* Removed section border sweep animation */
+
+        /* New Styles */
+        .service-footer-text {
+            font-size: 0.92rem;
+            color: #6e6e73;
+            max-width: 600px;
+            text-align: center;
+            margin: 2.5rem auto 0;
+            line-height: 1.8;
+        }
+
+        .projects-footer-block {
+            text-align: center;
+            margin-top: 3rem;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .projects-footer-block h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.5px;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+        }
+        .projects-footer-block p {
+            font-size: 0.92rem;
+            color: #6e6e73;
+            line-height: 1.85;
+            margin-bottom: 1.5rem;
+        }
+        .projects-footer-block a {
+            color: #00aecf;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+        }
+        .projects-footer-block a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-footer-block {
+            margin-top: 2.5rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        .contact-footer-block h4 {
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-footer-block p {
+            color: #6e6e73;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content, .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-text h1 {
+                font-size: 3.5rem;
+                letter-spacing: -1.5px;
+            }
+            
+            .hero-image {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                gap: 0;
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.3s ease;
+            }
+
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .nav-links a {
+                padding: 20px 24px;
+                border-bottom: 1px solid #eee;
+                display: block;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .services-grid, .projects-grid, .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">JBR <span class="text-cyan">Portfolio</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#resenas">Reseñas</a>
+                <a href="#contacto" class="nav-contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <div class="hero-text fade-up">
+                <h1>Jaime<br>Bernáldez<br><span class="text-cyan">Reina</span></h1>
+                <p>Optimizando negocios para impulsar ventas, ahorrar tiempo y lograr resultados reales.</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <a href="#contacto" class="btn btn-primary">Trabajemos juntos ↓</a>
+                    <a href="#proyectos" class="btn btn-ghost">Ver proyectos</a>
+                </div>
+            </div>
+            <div class="hero-image fade-up">
+                <img src="https://res.cloudinary.com/dfbsqy5ul/image/upload/q_auto/f_auto/v1775152379/Gemini_Generated_Image_ulnue6ulnue6ulnu_tou0fj.png" alt="Jaime Bernáldez Reina" class="hero-img" referrerPolicy="no-referrer">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre mí Section -->
+    <section class="about" id="sobre-mi">
+        <div class="container">
+            <span class="section-label fade-up">Conóceme</span>
+            <h2 class="section-title fade-up">Sobre <span class="text-cyan">mí</span></h2>
+            <div class="about-grid">
+                <div class="about-text fade-up">
+                    <p>Soy un consultor digital apasionado por transformar la manera en que operan las empresas. Mi enfoque se centra en identificar cuellos de botella y aplicar soluciones tecnológicas que realmente marcan la diferencia.</p>
+                    <p>Ayudo a negocios a escalar de forma sostenible, implementando sistemas que trabajan por ti, no al revés.</p>
+                    
+                    <ul class="mission-box">
+                        <li>Optimización de procesos internos para máxima eficiencia.</li>
+                        <li>Implementación de herramientas digitales de última generación.</li>
+                        <li>Estrategias orientadas a resultados medibles y crecimiento.</li>
+                    </ul>
+                </div>
+                <div class="stats-grid fade-up">
+                    <div class="stat-card">
+                        <div class="stat-small">+50 Proyectos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lo que ofrezco Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <span class="section-label fade-up">Servicios</span>
+            <h2 class="section-title fade-up">Lo que <span class="text-cyan">ofrezco</span></h2>
+            <div class="services-grid">
+                <div class="service-card fade-up">
+                    <div class="service-accent"></div>
+                    <h3>Identidad Visual y Diseño</h3>
+                    <p>Diseño profesional de logotipos y material gráfico para reforzar la identidad de tu marca y proyectar una imagen coherente y memorable.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-accent"></div>
+                    <h3>Marketing Digital y Contenido</h3>
+                    <p>Estrategias de creación de contenido (redes sociales, blogs, campañas) enfocadas en aumentar el alcance y la interacción con tu audiencia.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-accent"></div>
+                    <h3>Páginas Web Profesionales</h3>
+                    <p>Diseño y desarrollo de páginas web corporativas eficientes y soluciones digitales como cartas y menús interactivos para hostelería.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-accent"></div>
+                    <h3>Agentes Telefónicos IA</h3>
+                    <p>Sistemas de voz inteligentes que gestionan llamadas, agendan citas y brindan atención personalizada sin intervención humana.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-accent"></div>
+                    <h3>Chatbots Inteligentes</h3>
+                    <p>Implementación de chatbots conversacionales que atienden consultas, resuelven dudas frecuentes y guían a los clientes de forma autónoma 24/7.</p>
+                </div>
+                <div class="service-card fade-up">
+                    <div class="service-accent"></div>
+                    <h3>Guiones para Redes Sociales</h3>
+                    <p>Creación de guiones estratégicos y persuasivos para videos en redes sociales, diseñados para captar la atención, retener a la audiencia y maximizar el engagement.</p>
+                </div>
+            </div>
+            <p class="service-footer-text fade-up">Cada servicio está diseñado para generar impacto real en tu negocio desde el primer día. Sin rodeos, sin procesos interminables — solo resultados.</p>
+        </div>
+    </section>
+
+    <!-- Proyectos destacados Section -->
+    <section class="projects" id="proyectos">
+        <div class="container">
+            <span class="section-label fade-up">Portfolio</span>
+            <h2 class="section-title fade-up">Proyectos <span class="text-cyan">destacados</span></h2>
+            <div class="projects-header-block fade-up" style="text-align: center; margin-bottom: 3rem; max-width: 580px; margin-left: auto; margin-right: auto;">
+                <h3 style="font-size: 1.4rem; font-weight: 700; font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.5px; color: var(--text-dark); margin-bottom: 0.8rem;">Ellos ya dieron el paso.</h3>
+                <p style="font-size: 0.92rem; color: #6e6e73; line-height: 1.85; margin-bottom: 1.5rem;">Un proyecto bien hecho vale más que mil palabras. Estos son solo algunos de los negocios que confiaron en mí — y no se arrepintieron.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-up">
+                    <a href="https://elcasto.vercel.app/" target="_blank">
+                        <img src="https://res.cloudinary.com/dfbsqy5ul/image/upload/q_auto/f_auto/v1775151517/Elcasto_iydpbs.jpg" alt="El Casto" class="project-image" referrerPolicy="no-referrer">
+                    </a>
+                    <div class="project-content">
+                        <span class="project-tag">Desarrollo Web</span>
+                        <h3>El Casto</h3>
+                        <p>Diseño web corporativo con menú digital para restaurante y bar de copas.</p>
+                        <a href="https://elcasto.vercel.app/" target="_blank" class="project-link">Ver proyecto →</a>
+                    </div>
+                </div>
+                <div class="project-card fade-up">
+                    <a href="https://molino-de-la-romera.vercel.app/" target="_blank">
+                        <img src="https://res.cloudinary.com/dfbsqy5ul/image/upload/q_auto/f_auto/v1775152067/Molino_de_la_Romera_wr69hy.jpg" alt="Molino de la Romera" class="project-image" referrerPolicy="no-referrer">
+                    </a>
+                    <div class="project-content">
+                        <span class="project-tag">Desarrollo Web</span>
+                        <h3>Molino de la Romera</h3>
+                        <p>Plataforma web para restaurante y espacio de eventos con un diseño rústico y elegante.</p>
+                        <a href="https://molino-de-la-romera.vercel.app/" target="_blank" class="project-link">Ver proyecto →</a>
+                    </div>
+                </div>
+                <div class="project-card fade-up">
+                    <a href="https://clinicaolmo.vercel.app/" target="_blank">
+                        <img src="https://res.cloudinary.com/dfbsqy5ul/image/upload/q_auto/f_auto/v1775152067/Clinica_del_olmo_nygzxr.jpg" alt="Clínica Olmo" class="project-image" referrerPolicy="no-referrer">
+                    </a>
+                    <div class="project-content">
+                        <span class="project-tag">Desarrollo Web</span>
+                        <h3>Clínica Olmo</h3>
+                        <p>Sitio web corporativo para clínica médica, destacando servicios y equipo profesional.</p>
+                        <a href="https://clinicaolmo.vercel.app/" target="_blank" class="project-link">Ver proyecto →</a>
+                    </div>
+                </div>
+                <div class="project-card fade-up">
+                    <a href="https://alosan-inmobiliaria.vercel.app/" target="_blank">
+                        <img src="https://res.cloudinary.com/dfbsqy5ul/image/upload/q_auto/f_auto/v1775151517/Captura_de_pantalla_2026-04-02_193635_klqjgo.jpg" alt="Alosan Inmobiliaria" class="project-image" referrerPolicy="no-referrer">
+                    </a>
+                    <div class="project-content">
+                        <span class="project-tag">Desarrollo Web</span>
+                        <h3>Alosan Inmobiliaria</h3>
+                        <p>Portal inmobiliario optimizado para la visualización de propiedades y captación de leads.</p>
+                        <a href="https://alosan-inmobiliaria.vercel.app/" target="_blank" class="project-link">Ver proyecto →</a>
+                    </div>
+                </div>
+                <div class="project-card fade-up">
+                    <a href="https://bartxoko.vercel.app/" target="_blank">
+                        <img src="https://res.cloudinary.com/dfbsqy5ul/image/upload/q_auto/f_auto/v1775151517/Bar_txoko_gaivbx.jpg" alt="Bar Txoko" class="project-image" referrerPolicy="no-referrer">
+                    </a>
+                    <div class="project-content">
+                        <span class="project-tag">Desarrollo Web</span>
+                        <h3>Bar Txoko</h3>
+                        <p>Página web moderna para bar tradicional, con integración de carta y horarios.</p>
+                        <a href="https://bartxoko.vercel.app/" target="_blank" class="project-link">Ver proyecto →</a>
+                    </div>
+                </div>
+                <div class="project-card fade-up">
+                    <a href="https://adara-essence.vercel.app/" target="_blank">
+                        <img src="https://res.cloudinary.com/dfbsqy5ul/image/upload/q_auto/f_auto/v1775151517/Captura_de_pantalla_2026-04-02_193756_v1gb7i.jpg" alt="Adara Essence" class="project-image" referrerPolicy="no-referrer">
+                    </a>
+                    <div class="project-content">
+                        <span class="project-tag">Desarrollo Web</span>
+                        <h3>Adara Essence</h3>
+                        <p>Tienda online elegante para marca de cosmética y cuidado personal.</p>
+                        <a href="https://adara-essence.vercel.app/" target="_blank" class="project-link">Ver proyecto →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-footer-block fade-up" style="text-align: center; margin-top: 3rem;">
+                <a href="#contacto" style="color: #00aecf; font-weight: 700; font-size: 2rem; text-decoration: none; font-family: 'Space Grotesk', sans-serif;">¿Listo para ser el siguiente? Hablemos →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reseñas Section -->
+    <section class="reviews" id="resenas">
+        <div class="container">
+            <span class="section-label fade-up">Testimonios</span>
+            <h2 class="section-title fade-up">Lo que dicen mis <span class="text-cyan">clientes</span></h2>
+            <div class="reviews-grid">
+                <div class="review-card fade-up">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text"><span class="quote-mark">"</span>Jaime nos entregó la web de El Casto en tiempo récord y el resultado superó todas nuestras expectativas. Profesional, rápido y con un ojo increíble para el diseño. Totalmente recomendable.<span class="quote-mark">"</span></p>
+                    <div class="review-author">
+                        <div class="avatar">PR</div>
+                        <div class="author-info">
+                            <h4>Pepe Reina</h4>
+                            <span>Propietario, El Casto</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text"><span class="quote-mark">"</span>Necesitábamos una web para nuestro restaurante y espacio de eventos, y Jaime lo resolvió en días. El diseño rústico y elegante encaja perfecto con nuestra esencia. Un trabajo impecable.<span class="quote-mark">"</span></p>
+                    <div class="review-author">
+                        <div class="avatar">ML</div>
+                        <div class="author-info">
+                            <h4>María López</h4>
+                            <span>Gerente, Molino de la Romera</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text"><span class="quote-mark">"</span>El sitio web que implementó Jaime transmite la confianza que buscábamos para nuestra clínica. Los pacientes ahora encuentran toda la información de forma clara y rápida.<span class="quote-mark">"</span></p>
+                    <div class="review-author">
+                        <div class="avatar">CR</div>
+                        <div class="author-info">
+                            <h4>Carlos Ruiz</h4>
+                            <span>Director, Clínica Olmo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text"><span class="quote-mark">"</span>Contraté a Jaime para crear el portal de nuestra inmobiliaria y fue la mejor decisión. El proceso fue ágil, sin complicaciones, y el resultado es una web moderna que nos ayuda a captar más clientes.<span class="quote-mark">"</span></p>
+                    <div class="review-author">
+                        <div class="avatar">JG</div>
+                        <div class="author-info">
+                            <h4>Jorge González</h4>
+                            <span>Fundador, Alosan Inmobiliaria</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text"><span class="quote-mark">"</span>Lo que más me sorprendió fue la velocidad. En menos de una semana teníamos la web online con nuestra carta y todo funcionando. Nuestros clientes nos felicitan por lo bien que se ve.<span class="quote-mark">"</span></p>
+                    <div class="review-author">
+                        <div class="avatar">AA</div>
+                        <div class="author-info">
+                            <h4>Aitor Aguirre</h4>
+                            <span>Propietario, Bar Txoko</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text"><span class="quote-mark">"</span>Jaime creó una tienda online elegante y funcional para nuestra marca de cosmética. Ahora todo el proceso de venta es mucho más fluido. Muy buena comunicación y entrega antes del plazo previsto.<span class="quote-mark">"</span></p>
+                    <div class="review-author">
+                        <div class="avatar">EM</div>
+                        <div class="author-info">
+                            <h4>Elena Martínez</h4>
+                            <span>Directora, Adara Essence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <span class="section-label fade-up">Hablemos</span>
+            <h2 class="section-title fade-up"><span class="text-cyan">Contacto</span></h2>
+            <div class="contact-grid">
+                <div class="contact-info fade-up">
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>jaimebernaldezimpulsa@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>722 785 142</p>
+                        </div>
+                    </div>
+                    <div class="contact-footer-block fade-up" style="margin-top: 2rem; border-top: 1px solid #e2e8f0; padding-top: 2rem; text-align: center;">
+                        <h4 style="color: var(--text-dark); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;">¿Prefieres una respuesta inmediata?</h4>
+                        <p style="color: #6e6e73; margin-bottom: 1.5rem;">Escríbeme directamente por WhatsApp y te respondo en menos de 24 horas.</p>
+                        <a href="https://wa.me/34722785142" target="_blank" class="btn btn-primary">Abrir WhatsApp</a>
+                    </div>
+                </div>
+                <div class="contact-form fade-up">
+                    <form onsubmit="event.preventDefault(); alert('Mensaje enviado correctamente.');">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" class="form-control" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required placeholder="tu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" class="form-control" required placeholder="¿En qué puedo ayudarte?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Jaime Bernáldez Reina. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/34722785142" target="_blank" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Animation (Fade Up)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Cyan pulse for section titles
+                    if (entry.target.classList.contains('section-title')) {
+                        const cyanText = entry.target.querySelector('.text-cyan');
+                        if (cyanText) {
+                            cyanText.classList.add('pulse-active');
+                        }
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Stagger delays for grid children
+        document.querySelectorAll('.services-grid, .projects-grid, .reviews-grid, .stats-grid, .about-grid, .contact-grid').forEach(grid => {
+            const children = Array.from(grid.children);
+            children.forEach((child, index) => {
+                if (child.classList.contains('fade-up')) {
+                    child.style.transitionDelay = `${index * 80}ms`;
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-up').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Section border sweep observer
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-visible');
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(sec => {
+            sectionObserver.observe(sec);
+        });
+
+        // Navbar active link observer
+        const navObserverOptions = {
+            threshold: 0.3,
+            rootMargin: "-20% 0px -60% 0px"
+        };
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, navObserverOptions);
+
+        document.querySelectorAll('section').forEach(sec => {
+            navObserver.observe(sec);
+        });
+
+        // Navbar Blur on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
