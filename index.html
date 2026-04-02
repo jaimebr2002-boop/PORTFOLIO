@@ -99,21 +99,20 @@
 
         /* Navbar */
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.72);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            background: transparent;
             z-index: 1000;
-            border-bottom: 1px solid transparent;
-            transition: border-bottom 0.3s ease, box-shadow 0.3s ease;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease, border-bottom 0.3s ease;
         }
 
-        header.header-scrolled {
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .nav-container {
@@ -142,9 +141,9 @@
         }
 
         .nav-links a.active {
-            color: var(--cyan) !important;
-            border-bottom: 2px solid var(--cyan);
-            padding-bottom: 4px;
+            color: #00aecf !important;
+            border-bottom: 2px solid #00aecf;
+            padding-bottom: 2px;
         }
 
         .nav-links a:hover {
@@ -160,8 +159,8 @@
         }
 
         .nav-links a.nav-contacto.active {
-            border-bottom: 2px solid var(--cyan);
-            padding-bottom: 4px;
+            border-bottom: 2px solid #00aecf;
+            padding-bottom: 2px;
         }
 
         .mobile-menu-btn {
@@ -1205,38 +1204,42 @@
             sectionObserver.observe(sec);
         });
 
-        // Navbar active link observer
-        const navObserverOptions = {
-            threshold: 0.3,
-            rootMargin: "-20% 0px -60% 0px"
-        };
-
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    document.querySelectorAll('.nav-links a').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sticky Navbar Scroll Effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
             });
-        }, navObserverOptions);
 
-        document.querySelectorAll('section').forEach(sec => {
-            navObserver.observe(sec);
-        });
+            // Active Link Highlight
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
 
-        // Navbar Blur on Scroll
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
+            const observerOptions = {
+                root: null,
+                rootMargin: '-50% 0px -50% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
         });
     </script>
 </body>
